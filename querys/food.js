@@ -25,9 +25,23 @@ async function readImage(data){
   } catch (error) {
     return error.response.data
   }
-  
+}
+
+async function getRecipes(data){
+  console.log(data,"<<<")
+  try {
+    const response = await axios.post(`${url}food/recipe`,{data})
+    console.log(response.data.payload,"Data")
+    return response.data.payload
+  } catch (error) {
+    console.log(error,"error")
+    return error.response.data
+  }
 }
 
 
 
-module.exports = {readImage}
+module.exports = {
+  readImage,
+  getRecipes
+}
