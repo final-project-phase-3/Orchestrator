@@ -1,13 +1,16 @@
 const { ApolloServer } = require('apollo-server');
 const typeDefsProcessImage  = require('./typeDefs/processImage')
+const typeDefsRecipe  = require('./typeDefs/recipe')
 const resolvers = require('./resolvers/processImage')
+const foodResolvers = require('./resolvers/recipe')
 const server = new ApolloServer(
   { 
     typeDefs:
       [
-        typeDefsProcessImage
+        typeDefsProcessImage,
+        typeDefsRecipe
       ], 
-    resolvers : [resolvers]
+    resolvers : [resolvers,foodResolvers]
   }
 )
 const PORT = 4000
