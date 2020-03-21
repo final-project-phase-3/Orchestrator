@@ -6,8 +6,8 @@ const typeDefs = gql`
     msg: String
   }
 
-  type Query {
-    processImage(imageBase64:String):responseProcess
+  extend type Mutation {
+    processImage(imageUrl:String):responseProcess
   }
 
 `

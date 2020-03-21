@@ -4,19 +4,19 @@ const {ApolloError} = require('apollo-server')
 const redis = new Redis()
 const url = 'http://localhost:3001/'
 
-async function readImage({token,imageBase64}){
+async function readImage({token,imageUrl}){
   try {
-    const responseUpload = await axios({
-      url:`${url}processImage`,
-      method:'POST',
-      headers:{
-        token
-      },
-      data:{
-        imageBase64
-      }
-    })
-    
+    // const responseUpload = await axios({
+    //   url:`${url}processImage`,
+    //   method:'POST',
+    //   headers:{
+    //     token
+    //   },
+    //   data:{
+    //     image
+    //   }
+    // })
+    console.log(imageUrl)
     const responseImagga = await axios({
       url:`${url}processImage`,
       method:"GET",
@@ -24,7 +24,7 @@ async function readImage({token,imageBase64}){
         token
       },
       data:{
-        imageUrl:responseUpload.data.imageUrl
+        imageUrl:imageUrl
       }
     })
 
@@ -37,14 +37,14 @@ async function readImage({token,imageBase64}){
       data:{
         ingredient:{
           name:responseImagga.data.name,
-          image_url:responseUpload.data.imageUrl
+          image_url:imageUrl
         }
       }
     })
     console.log(responseAddIngridient)
     return {
       name:responseImagga.data.name,
-      imageUrl:responseUpload.data.imageUrl,
+      imageUrl:imageUrl,
       msg:"New Ingredient"
     }
   } catch (error) {

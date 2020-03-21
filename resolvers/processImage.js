@@ -1,9 +1,10 @@
 const {readImage} = require('../querys/food')
 
 const resolvers = {
-  Query: {
-    async processImage(parent,{ imageBase64 },{ token },info){
-      const response = await readImage({ token,imageBase64 })
+  Mutation: {
+    async processImage(parent,{ imageUrl },{ token },info){
+      
+      const response = await readImage({ token,imageUrl })
       
       return response
     },

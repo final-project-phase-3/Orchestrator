@@ -12,7 +12,7 @@ const typeDefsFavorite = gql`
     idAPI: String
   }
 
-  extend type Query {
+  type Query {
     getFav: [favorite]
   }
 
