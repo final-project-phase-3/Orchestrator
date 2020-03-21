@@ -10,7 +10,11 @@ const server = new ApolloServer(
         typeDefsProcessImage,
         typeDefsRecipe
       ], 
-    resolvers : [resolvers,foodResolvers]
+    resolvers : [resolvers,foodResolvers],
+    context: ({ req }) => {
+      const token = req.headers.token || ""
+      return { token };
+    }
   }
 )
 const PORT = 4000
