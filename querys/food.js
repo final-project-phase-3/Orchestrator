@@ -1,5 +1,6 @@
 const axios = require('axios')
 var Redis = require('ioredis');
+const {ApolloError} = require('apollo-server')
 const redis = new Redis()
 const url = 'http://localhost:3001/'
 
@@ -64,9 +65,26 @@ async function getRecipes(data){
   }
 }
 
+async function getUser(token){
+  try {
+    const response = await axios({
+      method:"GET",
+      url:`${url}user`,
+      headers:{
+        token
+      }
+    })
+    console.log(response.data)
+    return response.data
+  } catch (error) {
+    console.log(error.response)
+    return new ApolloError(error.response.data.msg,error.response.status)
+  }
+}
 
 
 module.exports = {
   readImage,
-  getRecipes
+  getRecipes,
+  getUser
 }
