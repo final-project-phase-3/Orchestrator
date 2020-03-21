@@ -49,7 +49,7 @@ async function readImage({token,imageBase64}){
     }
   } catch (error) {
     console.log(error)
-    return error.response.data
+    return new ApolloError(error.response.data.msg,error.response.status)
   }
 }
 
@@ -61,7 +61,7 @@ async function getRecipes(data){
     return response.data.payload
   } catch (error) {
     console.log(error,"error")
-    return error.response.data
+    return new ApolloError(error.response.data.msg,error.response.status)
   }
 }
 

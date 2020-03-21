@@ -6,6 +6,7 @@ const typeDefsUser  = require('./typeDefs/user')
 const resolvers = require('./resolvers/processImage')
 const foodResolvers = require('./resolvers/recipe')
 const userResolvers = require('./resolvers/user')
+const { resolvers: favoriteResolver } = require('./resolvers/favorites')
 
 const server = new ApolloServer(
   { 
