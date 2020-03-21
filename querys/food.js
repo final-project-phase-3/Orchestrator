@@ -65,6 +65,18 @@ async function getRecipes(data){
   }
 }
 
+async function searchRecipes(data){
+  console.log(data,"<<<")
+  try {
+    const response = await axios.post(`${url}food/searchRecipe`,{data})
+    console.log(response.data.payload,"Data")
+    return response.data.payload
+  } catch (error) {
+    console.log(error,"error")
+    return new ApolloError(error.response.data.msg,error.response.status)
+  }
+}
+
 async function getUser(token){
   try {
     const response = await axios({
@@ -86,5 +98,6 @@ async function getUser(token){
 module.exports = {
   readImage,
   getRecipes,
-  getUser
+  getUser,
+  searchRecipes
 }
