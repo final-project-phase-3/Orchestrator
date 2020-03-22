@@ -1,20 +1,19 @@
-const { gql } = require('apollo-server');
+const { gql } = require("apollo-server");
 const typeDefs = gql`
-  type responseUser{
-    username: String,
-    email: String,
-    refrigerator:[refrigerator]
+  type responseUser {
+    username: String
+    email: String
+    refrigerator: [refrigerator]
   }
 
-  type refrigerator{
-    _id:String
-    name:String,
+  type refrigerator {
+    _id: String
+    name: String
     image_url: String
   }
   extend type Query {
-    getUser:responseUser
+    getUser: responseUser
   }
+`;
 
-`
-
-module.exports = typeDefs
+module.exports = typeDefs;
