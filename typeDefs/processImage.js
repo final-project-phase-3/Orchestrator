@@ -2,6 +2,7 @@ const { gql } = require('apollo-server');
 const typeDefs = gql`
   type responseProcess{
     name: String,
+    tags: [String]
     imageUrl: String,
     msg: String
   }
