@@ -29,11 +29,11 @@ async function addTofav({ token, data }) {
         token
       },
       data: {
-        name: data.name,
+        title: data.title,
         cookingSteps: data.cookingSteps,
-        nutrition: data.nutrition,
+        nutritions: data.nutritions,
         servingTime: data.servingTime,
-        image_url_recipe: data.image_url_recipe,
+        image: data.image,
         usedIngredients: data.usedIngredients,
         missedIngredients: data.missedIngredients
       }
