@@ -3,11 +3,11 @@ const typeDefsFavorite = gql`
   scalar Object
   type favorite {
     _id: String
-    name: String
-    image_url_recipe: String
+    title: String
+    image: String
     missedIngredients: [Object]
     cookingSteps: [Object]
-    nutrition: [Object]
+    nutritions: [Object]
     servingTime: String
     usedIngredients: [Object]
     idAPI: String
@@ -21,10 +21,10 @@ const typeDefsFavorite = gql`
     addToFav(
       idAPI: String!
       cookingSteps: [Object]
-      nutrition: [Object]
+      nutritions: [Object]
       servingTime: String
-      name: String!
-      image_url_recipe: String
+      title: String!
+      image: String
       usedIngredients: [Object]
       missedIngredients: [Object]
     ): favorite

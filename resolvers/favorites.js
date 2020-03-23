@@ -14,11 +14,11 @@ const resolvers = {
     async addToFav(_, args, context) {
       const objData = {
         idAPI: args.idAPI,
-        name: args.name,
+        title: args.title,
         cookingSteps: args.cookingSteps,
-        nutrition: args.nutrition,
+        nutritions: args.nutritions,
         servingTime: args.servingTime,
-        image_url_recipe: args.image_url_recipe,
+        image: args.image,
         usedIngredients: args.usedIngredients,
         missedIngredients: args.missedIngredients
       };
