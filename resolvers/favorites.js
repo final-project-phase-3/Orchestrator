@@ -18,7 +18,9 @@ const resolvers = {
         cookingSteps: args.cookingSteps,
         nutrition: args.nutrition,
         servingTime: args.servingTime,
-        image_url_recipe: args.image_url_recipe
+        image_url_recipe: args.image_url_recipe,
+        usedIngredients: args.usedIngredients,
+        missedIngredients: args.missedIngredients
       };
       const response = await addTofav({
         token: context.token,
