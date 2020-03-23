@@ -9,6 +9,7 @@ const typeDefsFavorite = gql`
     cookingSteps: [Object]
     nutrition: [Object]
     servingTime: String
+    usedIngredients: [Object]
     idAPI: String
   }
 
@@ -24,6 +25,8 @@ const typeDefsFavorite = gql`
       servingTime: String
       name: String!
       image_url_recipe: String
+      usedIngredients: [Object]
+      missedIngredients: [Object]
     ): favorite
     removeFromFav(idAPI: String!): favorite
   }

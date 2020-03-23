@@ -2,7 +2,7 @@ const axios = require("axios");
 var Redis = require("ioredis");
 const redis = new Redis();
 const url = "http://localhost:3001/";
-const {ApolloError} = require('apollo-server')
+const { ApolloError } = require("apollo-server");
 
 async function getFav(data) {
   //   console.log(data.context.token);
@@ -16,7 +16,7 @@ async function getFav(data) {
     });
     return result.data;
   } catch (error) {
-    return new ApolloError(error.response.data.msg,error.response.status)
+    return new ApolloError(error.response.data.msg, error.response.status);
   }
 }
 
@@ -33,19 +33,21 @@ async function addTofav({ token, data }) {
         cookingSteps: data.cookingSteps,
         nutrition: data.nutrition,
         servingTime: data.servingTime,
-        image_url_recipe: data.image_url_recipe
+        image_url_recipe: data.image_url_recipe,
+        usedIngredients: data.usedIngredients,
+        missedIngredients: data.missedIngredients
       }
     });
-  
+
     return result.data;
   } catch (error) {
-    return new ApolloError(error.response.data.msg,error.response.status)
+    return new ApolloError(error.response.data.msg, error.response.status);
   }
 }
 
 async function removeFromFav({ token, data }) {
   console.log(data);
-  try {   
+  try {
     const result = await axios({
       method: "DELETE",
       url: `${url}favorites/${data}`,
@@ -55,7 +57,7 @@ async function removeFromFav({ token, data }) {
     });
     return result.data;
   } catch (error) {
-    return new ApolloError(error.response.data.msg,error.response.status)
+    return new ApolloError(error.response.data.msg, error.response.status);
   }
 }
 
