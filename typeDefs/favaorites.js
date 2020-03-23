@@ -8,7 +8,7 @@ const typeDefsFavorite = gql`
     missedIngredients: [Object]
     cookingSteps: [Object]
     nutritions: [Object]
-    servingTime: String
+    readyInMinutes: Int
     usedIngredients: [Object]
     idAPI: String
   }
@@ -22,7 +22,7 @@ const typeDefsFavorite = gql`
       idAPI: String!
       cookingSteps: [Object]
       nutritions: [Object]
-      servingTime: String
+      readyInMinutes: Int
       title: String!
       image: String
       usedIngredients: [Object]

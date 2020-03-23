@@ -17,7 +17,7 @@ const resolvers = {
         title: args.title,
         cookingSteps: args.cookingSteps,
         nutritions: args.nutritions,
-        servingTime: args.servingTime,
+        readyInMinutes: args.readyInMinutes,
         image: args.image,
         usedIngredients: args.usedIngredients,
         missedIngredients: args.missedIngredients

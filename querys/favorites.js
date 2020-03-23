@@ -32,7 +32,7 @@ async function addTofav({ token, data }) {
         title: data.title,
         cookingSteps: data.cookingSteps,
         nutritions: data.nutritions,
-        servingTime: data.servingTime,
+        readyInMinutes: data.readyInMinutes,
         image: data.image,
         usedIngredients: data.usedIngredients,
         missedIngredients: data.missedIngredients
