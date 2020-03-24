@@ -1,4 +1,4 @@
-const {getRecipes, searchRecipes} = require('../querys/food')
+const {getRecipes, searchRecipes, getRandomRecipes} = require('../querys/food')
 
 const resolvers = {
   Query: {
@@ -10,6 +10,11 @@ const resolvers = {
     async searchRecipes(_,{ input },context,info){
       console.log(input,"<<")
       const response = await searchRecipes(input)
+      console.log(response)
+      return response
+    },
+    async getRandomRecipes(_, args,context,info){
+      const response = await getRandomRecipes()
       console.log(response)
       return response
     },

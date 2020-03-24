@@ -47,6 +47,7 @@ const typeDefs = gql`
   extend type Query {
     getRecipes(ingredients: [String]): [recipe]
     searchRecipes(input: String): [searchrecipe]
+    getRandomRecipes: [searchrecipe]
   }
 
 `
