@@ -78,6 +78,18 @@ async function searchRecipes(data) {
   }
 }
 
+async function getRandomRecipes(data) {
+  console.log(data, "<<<");
+  try {
+    const response = await axios.get(`${url}food/randomRecipe`);
+    console.log(response.data.payload, "Data");
+    return response.data.payload;
+  } catch (error) {
+    console.log(error, "error");
+    return new ApolloError(error.response.data.msg, error.response.status);
+  }
+}
+
 async function getUser(token) {
   try {
     const response = await axios({
@@ -99,5 +111,6 @@ module.exports = {
   readImage,
   getRecipes,
   getUser,
-  searchRecipes
+  searchRecipes,
+  getRandomRecipes
 };
