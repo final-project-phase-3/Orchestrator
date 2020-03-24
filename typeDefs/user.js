@@ -3,6 +3,7 @@ const typeDefs = gql`
   type responseUser {
     username: String
     email: String
+    password: String
     refrigerator: [refrigerator]
   }
 
@@ -13,6 +14,9 @@ const typeDefs = gql`
   }
   extend type Query {
     getUser: responseUser
+  }
+  extend type Mutation {
+    register(username: String!, email: String!, password: String!): responseUser
   }
 `;
 
