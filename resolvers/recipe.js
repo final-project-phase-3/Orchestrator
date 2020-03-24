@@ -8,7 +8,6 @@ const resolvers = {
       return response
     },
     async searchRecipes(_,{ input },context,info){
-      console.log(input,"<<")
       const response = await searchRecipes(input)
       console.log(response)
       return response

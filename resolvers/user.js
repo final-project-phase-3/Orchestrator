@@ -1,5 +1,5 @@
 const { getUser } = require("../querys/food");
-const { register } = require("../querys/user");
+const { register, login } = require("../querys/user");
 
 const resolvers = {
   Query: {
@@ -17,6 +17,14 @@ const resolvers = {
         password: args.password
       };
       const response = await register(data);
+      return response;
+    },
+    async login(_, args, context) {
+      const data = {
+        input: args.input,
+        password: args.password
+      };
+      const response = await login(data);
       return response;
     }
   }

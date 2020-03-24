@@ -21,4 +21,20 @@ async function register(data) {
   }
 }
 
-module.exports = { register };
+async function login(data) {
+  try {
+    const response = await axios({
+      method: "POST",
+      url: `${url}user/login`,
+      data: {
+        input: data.input,
+        password: data.password
+      }
+    });
+    return response.data.userData;
+  } catch (error) {
+    return new ApolloError(error.response.data.msg, error.response.status);
+  }
+}
+
+module.exports = { register, login };
