@@ -49,7 +49,6 @@ async function readImage({ token, imageUrl }) {
     //   msg:"New Ingredient"
     // }
   } catch (error) {
-    console.log(error);
     return new ApolloError(error.response.data.msg, error.response.status);
   }
 }
@@ -58,34 +57,26 @@ async function getRecipes(data) {
   console.log(data, "<<<");
   try {
     const response = await axios.post(`${url}food/recipe`, { data });
-    console.log(response.data.payload, "Data");
     return response.data.payload;
   } catch (error) {
-    console.log(error, "error");
     return new ApolloError(error.response.data.msg, error.response.status);
   }
 }
 
 async function searchRecipes(data) {
-  console.log(data, "<<<");
   try {
     const response = await axios.post(`${url}food/searchRecipe`, { data });
-    console.log(response.data.payload, "Data");
     return response.data.payload;
   } catch (error) {
-    console.log(error, "error");
     return new ApolloError(error.response.data.msg, error.response.status);
   }
 }
 
 async function getRandomRecipes(data) {
-  console.log(data, "<<<");
   try {
     const response = await axios.get(`${url}food/randomRecipe`);
-    console.log(response.data.payload, "Data");
     return response.data.payload;
   } catch (error) {
-    console.log(error, "error");
     return new ApolloError(error.response.data.msg, error.response.status);
   }
 }
@@ -99,10 +90,8 @@ async function getUser(token) {
         token
       }
     });
-    console.log(response.data);
     return response.data;
   } catch (error) {
-    console.log(error.response);
     return new ApolloError(error.response.data.msg, error.response.status);
   }
 }
